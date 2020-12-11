@@ -271,10 +271,14 @@ class PolygonMasks:
         def process_polygons(
             polygons_per_instance: List[Union[torch.Tensor, np.ndarray]]
         ) -> List[np.ndarray]:
-            assert isinstance(polygons_per_instance, list), (
-                "Cannot create polygons: Expect a list of polygons per instance. "
-                "Got '{}' instead.".format(type(polygons_per_instance))
-            )
+            if not isinstance(polygons_per_instance, list) and not isinstance(polygons_per_instance, np.ndarray):
+                assert isinstance(polygons_per_instance, list), (
+                    "Cannot create polygons: Expect a list of polygons per instance. "
+                    "Got '{}' instead.".format(type(polygons_per_instance))
+                )
+            if isinstance(polygons_per_instance, np.ndarray):
+                polygons_per_instance = polygons_per_instance.tolist()
+                    
             # transform the polygon to a tensor
             polygons_per_instance = [_make_array(p) for p in polygons_per_instance]
             for polygon in polygons_per_instance:
