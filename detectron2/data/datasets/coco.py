@@ -169,11 +169,9 @@ Category ids in annotations are not in [1, #categories]! We'll apply a mapping f
                     if isinstance(segm["counts"], list):
                         # convert to compressed RLE
                         segm = mask_util.frPyObjects(segm, *segm["size"])
-                        print(segm)
                 else:
                     if isinstance(segm[0], dict):
-                        segm = segm[0]
-                        print('NEW!: ', segm)
+                        segm = segm[0]                  
                     else:
                         # filter out invalid polygons (< 3 points)
                         segm = [poly for poly in segm if len(poly) % 2 == 0 and len(poly) >= 6]
