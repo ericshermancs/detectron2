@@ -282,7 +282,7 @@ class PolygonMasks:
             return polygons_per_instance
         print(type(polygons))
         print(type(polygons[0])
-        print('======================
+        print('======================')
               
         self.polygons: List[List[np.ndarray]] = [
             process_polygons(polygons_per_instance) for polygons_per_instance in polygons
