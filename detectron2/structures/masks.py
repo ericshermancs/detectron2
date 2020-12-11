@@ -282,11 +282,13 @@ class PolygonMasks:
             # transform the polygon to a tensor
             polygons_per_instance = [_make_array(p) for p in polygons_per_instance]
             for polygon in polygons_per_instance:
+                if len(polygon) % 2 != 0:
+                    polygon = polygon[:-1]
                 assert len(polygon) % 2 == 0 and len(polygon) >= 6
             return polygons_per_instance
-        #print(type(polygons))
-        #print(type(polygons[0]))
-        #print('======================')
+        print(type(polygons))
+        print(type(polygons[0]))
+        print('======================')
               
         self.polygons: List[List[np.ndarray]] = [
             process_polygons(polygons_per_instance) for polygons_per_instance in polygons
