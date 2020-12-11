@@ -173,6 +173,7 @@ Category ids in annotations are not in [1, #categories]! We'll apply a mapping f
                 else:
                     if isinstance(segm[0], dict):
                         segm = segm[0]
+                        print('NEW!: ', segm)
                     else:
                         # filter out invalid polygons (< 3 points)
                         segm = [poly for poly in segm if len(poly) % 2 == 0 and len(poly) >= 6]
