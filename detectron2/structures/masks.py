@@ -280,7 +280,9 @@ class PolygonMasks:
             for polygon in polygons_per_instance:
                 assert len(polygon) % 2 == 0 and len(polygon) >= 6
             return polygons_per_instance
-
+        print(type(polygons))
+        print(type(polygons[0])
+              
         self.polygons: List[List[np.ndarray]] = [
             process_polygons(polygons_per_instance) for polygons_per_instance in polygons
         ]
