@@ -4,7 +4,7 @@ import pickle
 from detectron2.utils.visualizer import Visualizer
 from detectron2.utils.visualizer import ColorMode
 from google.colab.patches import cv2_imshow
-
+__all__ = ["CustomPredictor"]
 class CustomPredictor:
     def __init__(self, model):
         if type(model) == str:
