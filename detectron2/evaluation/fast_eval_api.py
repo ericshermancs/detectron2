@@ -14,7 +14,7 @@ class COCOeval_opt(COCOeval):
     """
 
     def new_prepare(self):
-      '''
+        '''
         Prepare ._gts and ._dts for evaluation based on params
         :return: None
         '''
