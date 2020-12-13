@@ -22,8 +22,8 @@ class COCOeval_opt(COCOeval):
         def _toMask(anns, coco):
             # modify ann['segmentation'] by reference
             for ann in anns:
-                if type(ann) ==list:
-                    ann = np.array(ann, dtype=2)
+                if type(ann['segmentation']) ==list:
+                    ann['segmentation'] = np.array(ann['segmentation'], dtype=2)
                 rle = coco.annToRLE(ann)
                 ann['segmentation'] = rle
         p = self.params
